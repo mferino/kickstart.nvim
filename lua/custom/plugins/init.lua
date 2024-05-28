@@ -15,19 +15,25 @@ return {
     config = true,
     vim.keymap.set('n', '<leader>ng', ':Neogit<CR>', { desc = '[N]eo[G]it' }),
   },
-  'kdheepak/lazygit.nvim',
-  cmd = {
-    'LazyGit',
-    'LazyGitConfig',
-    'LazyGitCurrentFile',
-    'LazyGitFilter',
-    'LazyGitFilterCurrentFile',
+  {
+    'kdheepak/lazygit.nvim',
+    cmd = {
+      'LazyGit',
+      'LazyGitConfig',
+      'LazyGitCurrentFile',
+      'LazyGitFilter',
+      'LazyGitFilterCurrentFile',
+    },
+    -- optional for floating window border decoration
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+    },
+    -- setting the keybinding for LazyGit with 'keys' is recommended in
+    -- order to load the plugin when the command is run for the first time
+    vim.keymap.set('n', '<leader>lg', '<cmd>LazyGit<cr>', { desc = '[L]azy[G]it' }),
   },
-  -- optional for floating window border decoration
-  dependencies = {
-    'nvim-lua/plenary.nvim',
+  {
+    'tpope/vim-fugitive',
+    vim.keymap.set('n', '<leader>fg', ':Git<cr>', { desc = '[F]u[G]itive' }),
   },
-  -- setting the keybinding for LazyGit with 'keys' is recommended in
-  -- order to load the plugin when the command is run for the first time
-  vim.keymap.set('n', '<leader>lg', '<cmd>LazyGit<cr>', { desc = '[L]azy[G]it' }),
 }
