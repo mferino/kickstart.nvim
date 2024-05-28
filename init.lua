@@ -593,6 +593,21 @@ require('lazy').setup({
             },
           },
         },
+        volar = {
+          filetypes = { 'vue', 'javascript', 'typescript', 'javascriptreact', 'typescriptreact' },
+          init_options = {
+            vue = {
+              hybridMode = false,
+            },
+            typescript = {
+              -- Global install of typescript
+              --tsdk = '~/.nvm/versions/node/v20.11.1/lib/node_modules/typescript',
+              -- Current project version and what I will likely use
+              tsdk = vim.fn.getcwd() .. 'node_modules/typescript/lib',
+            },
+          },
+        },
+        tsserver = {},
       }
 
       -- Ensure the servers and tools above are installed
@@ -659,7 +674,9 @@ require('lazy').setup({
         --
         -- You can use a sub-list to tell conform to run *until* a formatter
         -- is found.
-        -- javascript = { { "prettierd", "prettier" } },
+        javascript = { { "prettierd", "prettier" } },
+        vue = { { "prettierd", "prettier" } },
+        typescript = { { "prettierd", "prettier" } },
       },
     },
   },
