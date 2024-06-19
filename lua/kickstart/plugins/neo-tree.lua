@@ -19,6 +19,9 @@ return {
         mappings = {
           ['\\'] = 'close_window',
         },
+        filtered_items = {
+          hide_gitignored = false,
+        },
       },
     },
   },
